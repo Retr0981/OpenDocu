@@ -1,0 +1,25 @@
+[package]
+name = "opendocu-extractor"
+description = "Turn documents into data: tables, key-value pairs, entities, and structured records"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+opendocu-structures.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+unicode-segmentation.workspace = true
+thiserror.workspace = true
+regex = "1"
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+
+# Optional vision-language model (VLM) provider for scanned/image documents.
+reqwest = { version = "0.12", features = ["json"], default-features = false, optional = true }
+
+[features]
+default = []
+# Enable the HTTP-backed VisionLanguageModel provider. Needs OPENDOCU_VLM_* env vars.
+vlm = ["dep:reqwest"]
