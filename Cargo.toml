@@ -1,0 +1,45 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/structures",
+    "crates/parser",
+    "crates/summarizer",
+    "crates/extractor",
+    "crates/pipeline",
+    "crates/core",
+    "crates/ffi",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/opendocu/opendocu"
+homepage = "https://opendocu.org"
+rust-version = "1.75"
+authors = ["David Nii Armah"]
+
+[workspace.dependencies]
+opendocu-structures = { version = "0.1.0", path = "crates/structures" }
+opendocu-parser = { version = "0.1.0", path = "crates/parser" }
+opendocu-summarizer = { version = "0.1.0", path = "crates/summarizer" }
+opendocu-extractor = { version = "0.1.0", path = "crates/extractor" }
+opendocu-pipeline = { version = "0.1.0", path = "crates/pipeline" }
+opendocu-core = { version = "0.1.0", path = "crates/core" }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+nom = "7"
+rayon = "1"
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "sync", "time"] }
+thiserror = "1"
+unicode-segmentation = "1"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+
+[profile.bench]
+debug = true

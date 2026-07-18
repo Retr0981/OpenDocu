@@ -1,0 +1,48 @@
+
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# Node
+node_modules/
+npm-package/node_modules/
+web-app/node_modules/
+desktop-app/node_modules/
+docs/node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Desktop / Tauri
+desktop-app/src-tauri/target/
+desktop-app/src-tauri/gen/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Docs
+docs/build/
+docs/.docusaurus/
+docs/.cache/
+
+# Criterion benchmarks
+target/criterion/
