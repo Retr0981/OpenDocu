@@ -1,0 +1,23 @@
+[package]
+name = "opendocu-pipeline"
+description = "RAG pipeline: chunking, embeddings, vector store, retrieval, generation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+opendocu-structures.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+unicode-segmentation.workspace = true
+thiserror.workspace = true
+
+# Optional LLM/embedding HTTP providers.
+reqwest = { version = "0.12", features = ["json"], default-features = false, optional = true }
+
+[features]
+default = []
+# Enable HTTP-backed embedding + generation providers (need API keys at runtime).
+llm = ["dep:reqwest"]
