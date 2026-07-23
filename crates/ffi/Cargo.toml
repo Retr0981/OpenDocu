@@ -1,0 +1,18 @@
+[package]
+name = "opendocu-ffi"
+description = "C ABI (cdylib + staticlib) for OpenDocu, consumed by Node/Python/C++ bindings"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "opendocu"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+opendocu-core.workspace = true
+opendocu-structures.workspace = true
+serde_json.workspace = true
+libc = "0.2"
